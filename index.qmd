@@ -738,8 +738,8 @@ Current:
 
 + Delivering for NHS (with Penny Holborn)
 
-    - Fundamentals of Data Science
-    - Fundamentals of Machine Learning
+    - [Fundamentals of Data Science](https://filebb.github.io/NHS_intro_DS/)
+    - [Fundamentals of Machine Learning](https://filebb.github.io/NHS_intro_ML/)
     
 To do:
 
