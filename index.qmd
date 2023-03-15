@@ -1,0 +1,766 @@
+---
+title: "Introduction to Quarto for R Users"
+subtitle: "NHS-R Community Webinar"
+author: "Filippo Cavallari"
+date: 2023-03-15
+execute: 
+  cache: true
+date-format: D MMMM YYYY
+format:
+    revealjs:
+        theme: [simple, theme.scss]
+        highlight-style: atom-one
+        slide-number: c/t
+        footer: "Introduction to Quarto for R Users"
+        transition: fade
+        transition-speed: default
+        chalkboard:
+          boardmarker-width: 5
+          buttons: false
+---
+
+## About Me
+
+::::{layout="[[-1], [1], [-1]]"}
++ Currently Data Science Lecturer at ONS
+
++ Previuosly working in Academia
+
++ R user since 2012
+::::
+
+## Back in April 2022
+
+```{=html}
+<center>
+<iframe width="1000" height="500" src="https://www.apreshill.com/blog/2022-04-we-dont-talk-about-quarto/" title="We Don't Talk About Quarto"></iframe>
+</center>
+```
+
+## Then in July 2022
+
+::::{layout="[[-1], [-1, 10, -1], [-1]]"}
+{{< video https://www.youtube.com/embed/p7Hxu4coDl8 width="600" height="450" >}}
+::::
+
+## What is Quarto? {auto-animate=true}
+
+```{=html}
+<center>
+<iframe width="1000" height="500" src="https://quarto.org" title="Quarto Website"></iframe>
+</center>
+```
+
+::: aside
+<https://quarto.org>
+:::
+
+## Packages
+
+::::{layout="[[-1], [1], [-1]]"}
+![](images/rmarkdown.png){width=15%}
+![](images/bookdown.png){width=15%}
+![](images/blogdown.png){width=15%}
+![](images/pagedown.png){width=15%}
+![](images/distill.png){width=15%}
+![](images/xaringan.png){width=15%}
+:::
+
+Just for R...
+
+## Supports More Languages
+
+::::{layout="[[-1], [1], [-1]]"}
+![](images/R_logo.png){width=24%}
+![](images/Python-logo-notext.png){width=24%}
+![](images/Julia_Programming_Language_Logo.png){width=24%}
+![](images/observable.png){width=24%}
+:::
+
+## And Integrates with More Tools
+
+::::{layout="[[-1], [1], [-1]]"}
+![](images/rstudio-logo.png){width=24%}
+![](images/vscode-logo.png){width=24%}
+![](images/jupyter-logo.png){width=24%}
+![](images/neovim-logo.svg){width=24%}
+:::
+
+## Quarto is a CLI
+
+Quarto is a **command line interface** that takes in input plain text formats
+(e.g. `.md`, `.Rmd`, `.qmd`) or `.ipynb` and transforms them in a variaety of
+formats:
+
+:::{.incremental}
++ Documents (Word, PDF, HTML, Open Office)
++ Presentations (Revealjs, PowerPoint, Beamer)
++ Websites (including blogs and books)
++ more 
+:::
+
+## Philosophy
+
+::::{layout="[[-1], [1], [-1]]"}
+_Any_ language, _any_ format, _same_ syntax.
+:::
+
+```{bash}
+#| eval: false
+#| echo: true
+quarto render document.qmd
+```
+
+
+## How?
+
+::::{layout="[[1], [-1], [1], [-1], [1], [-1]]"}
+If we have experience with RMarkdown, then many things will sound familiar.
+
+First, we provide metadata using a YAML header:
+
+:::: {.columns}
+
+::: {.column width="33%"}
+```yaml
+---
+title: "Untitled"
+format: html
+---
+```
+:::
+
+::: {.column width="34%"}
+```yaml
+---
+title: "Untitled"
+format: pdf
+---
+```
+:::
+
+::: {.column width="33%"}
+```yaml
+---
+title: "Untitled"
+format: docx
+---
+```
+:::
+
+::::
+
+::::
+
+## Body
+
+Then we insert text and chunks of code as usual.
+
+````code
+Some insights from penguins.
+
+```{{r}}
+library(tidyverse)
+library(palmerpenguins)
+
+glimpse(penguins)
+
+penguins |> 
+    count(species)
+```
+````
+
+## Formatting
+
++-----------------------------------+-------------------------------+
+| Markdown Syntax                   | Output                        |
++===================================+===============================+
+|     *italics* and **bold**        | *italics* and **bold**        |
++-----------------------------------+-------------------------------+
+|     superscript^2^ / subscript~2~ | superscript^2^ / subscript~2~ |
++-----------------------------------+-------------------------------+
+|     ~~strikethrough~~             | ~~strikethrough~~             |
++-----------------------------------+-------------------------------+
+|     `verbatim code`               | `verbatim code`               |
++-----------------------------------+-------------------------------+
+
+## Headings {.scrollable}
+
++---------------------+-----------------------------------+
+| Markdown Syntax     | Output                            |
++=====================+===================================+
+|     # Header 1      | # Header 1 {.heading-output}      |
++---------------------+-----------------------------------+
+|     ## Header 2     | ## Header 2 {.heading-output}     |
++---------------------+-----------------------------------+
+|     ### Header 3    | ### Header 3 {.heading-output}    |
++---------------------+-----------------------------------+
+|     #### Header 4   | #### Header 4 {.heading-output}   |
++---------------------+-----------------------------------+
+|     ##### Header 5  | ##### Header 5 {.heading-output}  |
++---------------------+-----------------------------------+
+|     ###### Header 6 | ###### Header 6 {.heading-output} |
++---------------------+-----------------------------------+
+
+## Markdown Basics
+
+Most of the markdown you know is still the same and relevant.
+
+You can
+
++ Create lists
++ Tables
++ Equations
++ ...
+
+For a complete reference see [Markdown Basics](https://quarto.org/docs/authoring/markdown-basics.html).
+
+## Equations {.scrollable .smaller}
+
+For equations you can use `$` or `$$` to include Latex syntax
+
+$$
+\begin{split}
+\frac{\partial\mathcal{L}}{\partial\beta_1} &=
+-\frac{1}{N}
+\sum_{i=1}^N \left[ \frac{y^{(i)}}{\hat{y}^{(i)}} \hat{y}^{(i)} (1 - \hat{y}^{(i)}) x^{(i)} -
+\frac{1 - y^{(i)}}{1 - \hat{y}^{(i)}}  \hat{y}^{(i)} (1 - \hat{y}^{(i)}) x^{(i)} \right] \\
+&= -\frac{1}{N}
+\sum_{i=1}^N \left[ y^{(i)} (1 - \hat{y}^{(i)}) x^{(i)} - (1 - y^{(i)}) \hat{y}^{(i)} x^{(i)} \right] \\
+&= \frac{1}{N} \sum_{i=1}^N \left( \hat{y}^{(i)} - y^{(i)} \right) x^{(i)}
+\end{split}
+$$
+
+````code
+$$
+\begin{split}
+\frac{\partial\mathcal{L}}{\partial\beta_1} &=
+-\frac{1}{N}
+\sum_{i=1}^N \left[ \frac{y^{(i)}}{\hat{y}^{(i)}} \hat{y}^{(i)} (1 - \hat{y}^{(i)}) x^{(i)} -
+\frac{1 - y^{(i)}}{1 - \hat{y}^{(i)}}  \hat{y}^{(i)} (1 - \hat{y}^{(i)}) x^{(i)} \right] \\
+&= -\frac{1}{N}
+\sum_{i=1}^N \left[ y^{(i)} (1 - \hat{y}^{(i)}) x^{(i)} - (1 - y^{(i)}) \hat{y}^{(i)} x^{(i)} \right] \\
+&= \frac{1}{N} \sum_{i=1}^N \left( \hat{y}^{(i)} - y^{(i)} \right) x^{(i)}
+\end{split}
+$$
+````
+
+## Diagrams
+
+```{mermaid}
+%%| fig-width: 6
+flowchart LR
+  A[A] --> B{B}
+  B --> C(C)
+```
+
+````code
+```{mermaid}
+%%| fig-width: 6
+flowchart LR
+  A[A] --> B{B}
+  B --> C(C)
+```
+````
+
+See [here](https://quarto.org/docs/authoring/diagrams.html) for more about
+diagrams with mermaid.
+
+## Callout Blocks
+
+:::: {.columns}
+
+::: {.column}
+
+::: {.callout-note}
+Callout blocks are available by default
+:::
+
+::: {.callout-tip}
+Simple syntax to include them
+````code
+::: {.callout-note}
+Callout blocks are available by default
+:::
+````
+:::
+
+:::
+
+::: {.column}
+
+::: {.callout-important collapse="true"}
+## 5 options
+
++ note
++ warning
++ important
++ tip
++ caution
+
+:::
+
+:::
+
+::::
+
+## Code Chunks Options
+
+Are specified within comments at the top of a block
+
+````code
+Some insights from penguins.
+
+```{{r}}
+#| label: species analysis
+#| echo: true
+library(tidyverse)
+library(palmerpenguins)
+
+glimpse(penguins)
+
+penguins |> 
+    count(species)
+```
+````
+
+## Output Graphs
+
+```{r}
+#| echo: true
+#| fig-pos: center
+library(tidyverse)
+
+x <- seq(from = -4, to = 4, by = 0.1)
+
+tibble(x = x, y = map_dbl(x, \(x) (x - 2) * (x + 3) * (x - 1))) |> 
+    ggplot(mapping = aes(x = x, y = y)) +
+    geom_line(linewidth = 1.5, col = "dodgerblue") +
+    theme_classic(base_size = 22) +
+    theme(axis.title = element_text(hjust = 1))
+```
+
+## Tabsets
+
+::: {.panel-tabset}
+### Code
+```{r}
+#| echo: true
+#| eval: false
+library(tidyverse)
+
+x <- seq(from = -4, to = 4, by = 0.1)
+
+tibble(x = x, y = map_dbl(x, \(x) (x - 2) * (x + 3) * (x - 1))) |> 
+    ggplot(mapping = aes(x = x, y = y)) +
+    geom_line(linewidth = 1.5, col = "dodgerblue") +
+    theme_classic(base_size = 22) +
+    theme(axis.title = element_text(hjust = 1))
+```
+
+### Graph
+```{r}
+#| echo: false
+#| fig-pos: center
+library(tidyverse)
+
+x <- seq(from = -4, to = 4, by = 0.1)
+
+tibble(x = x, y = map_dbl(x, \(x) (x - 2) * (x + 3) * (x - 1))) |> 
+    ggplot(mapping = aes(x = x, y = y)) +
+    geom_line(linewidth = 1.5, col = "dodgerblue") +
+    theme_classic(base_size = 22) +
+    theme(axis.title = element_text(hjust = 1))
+```
+
+### Tabset
+
+We can divide the content in different tabs using
+````code
+::: {.panel-tabset}
+
+### One
+
+### Two
+
+### Three
+:::
+````
+:::
+
+## Another Example {.smaller}
+
+::: {.panel-tabset}
+
+### Data
+
+```{r}
+#| echo: false
+set.seed(2022)
+data <- tibble(x = 1:10, y = 3*(1:10) + 2 + rnorm(10, sd = 2))
+
+data |> 
+    ggplot(mapping = aes(x = x, y = y)) +
+    geom_point(size = 5) +
+    scale_x_continuous(breaks = seq(0,10,2)) +
+    scale_y_continuous(limits = c(0, 33)) +
+    theme_classic(base_size = 22) +
+    theme(axis.title = element_text(hjust=1))
+
+plot <- function(data, slope, intercept, col) {
+    loss <- data |> 
+        mutate(loss = (y - intercept - slope * x)^2/2) |> 
+        summarise(loss = mean(loss)) |> 
+        pull()
+    
+    data |> 
+        ggplot(mapping = aes(x = x, y = y)) +
+        geom_abline(mapping = aes(slope = slope, intercept = intercept), linewidth = 1.5, col = col) +
+        geom_point(size = 5) +
+        geom_segment(mapping = aes(x = x, y = y, xend = x, yend = intercept + slope * x)) +
+        scale_x_continuous(breaks = seq(0,10,2)) +
+        scale_y_continuous(limits = c(0, 33)) +
+        theme_classic(base_size = 22) +
+        theme(axis.title = element_text(hjust=1)) +
+        annotate("text", x = 2.5, y = 3, size = 5, label = paste0("loss = ", round(loss, digits = 2)))
+}
+```
+
+### Brown
+
+```{r}
+#| echo: false
+plot(data, 1, 5, "brown")
+```
+
+### Golden
+
+```{r}
+#| echo: false
+plot(data, 2, 10, "darkgoldenrod")
+```
+
+### Orchid
+
+```{r}
+#| echo: false
+plot(data, -1, 25, "darkorchid")
+```
+
+### Sea Green
+
+```{r}
+#| echo: false
+plot(data, -3, 30, "mediumseagreen")
+```
+
+### Tomato
+
+```{r}
+#| echo: false
+plot(data, 2.5, 0, "tomato")
+```
+
+### Tan
+
+```{r}
+#| echo: false
+plot(data, 3, 0.05, "tan")
+```
+
+### Best
+
+```{r}
+#| echo: false
+plot(data, 3.14540738, 0.07284628, "dodgerblue")
+```
+:::
+
+## Or Create a Sequence of Graphs
+
+```{r}
+#| fig-align: center
+source("logistic_regression.R")
+
+dataset |>
+    ggplot(mapping = aes(x = x, y = y)) +
+    geom_point(size = 4, alpha = 0.1) +
+    theme_bw()
+```
+
+## Simulation $n = 1$
+
+```{r}
+#| layout-align: center
+plot(1)
+```
+
+## Simulation $n = 2$
+
+```{r}
+#| layout-align: center
+plot(2)
+```
+
+## Simulation $n = 3$
+
+```{r}
+#| layout-align: center
+plot(3)
+```
+
+## Simulation $n = 10$
+
+```{r}
+#| layout-align: center
+plot(10)
+```
+
+## Simulation $n = 20$
+
+```{r}
+#| layout-align: center
+plot(20)
+```
+
+## Simulation $n = 30$
+
+```{r}
+#| layout-align: center
+plot(30)
+```
+
+## Simulation $n = 100$
+
+```{r}
+#| layout-align: center
+plot(100)
+```
+
+## Simulation $n = 200$
+
+```{r}
+#| layout-align: center
+plot(200)
+```
+
+## Simulation $n = 300$
+
+```{r}
+#| layout-align: center
+plot(300)
+```
+
+## Simulation $n = 500$
+
+```{r}
+#| layout-align: center
+plot(500)
+```
+
+## Simulation $n = 1000$
+
+```{r}
+#| layout-align: center
+plot(1000)
+```
+
+## Simulation $n = 1500$
+
+```{r}
+#| layout-align: center
+plot(1500)
+```
+
+## Simulation $n = 2000$
+
+```{r}
+#| layout-align: center
+plot(2000)
+```
+
+## Simulation $n = 2500$
+
+```{r}
+#| layout-align: center
+plot(2500)
+```
+
+## Simulation $n = 3000$
+
+```{r}
+#| layout-align: center
+plot(3000)
+```
+
+## Simulation $n = 3500$
+
+```{r}
+#| layout-align: center
+plot(3500)
+```
+
+## Simulation $n = 4000$
+
+```{r}
+#| layout-align: center
+plot(4000)
+```
+
+## Simulation $n = 4500$
+
+```{r}
+#| layout-align: center
+plot(4500)
+```
+
+## Simulation $n = 5000$
+
+```{r}
+#| layout-align: center
+plot(5000)
+```
+
+## Presentations {chalkboard-buttons="true"}
+
+Create `revealjs` presentations
+
+````yaml
+---
+title: "Presentation"
+format: revealjs
+---
+````
+
+## Presentations {.scrollable .smaller}
+
++ Navigation Menu
++ Overview Mode
++ Slide Zoom (`Alt + click` on Windows, `Ctlr + click` on Linux)
++ Slide Numbers
+
+````yaml
+---
+title: "Presentation"
+format:
+    revealjs:
+        slide-number: c/t
+---
+````
+
++ [Preview Links](https://nhsrcommunity.com/){preview-link="true"}
++ Chalckboard for all or just some slides
+
+## Some Options Worth Knowing
+
++ cache (any format)
+
+````yaml
+title: "Document"
+format: html
+execute: 
+    cache: true / false / refresh
+````
+
++ embed resources (`html` and `revealjs`)
+
+````yaml
+---
+title: "Presentation"
+format:
+    revealjs:
+        embed-resources: true
+---
+````
+
+## Other Projects
+
+```code
+$ quarto help create-project
+
+  Usage:   quarto create-project [dir]
+  Version: 1.2.335
+
+  Description:
+
+    Create a project for rendering multiple documents
+
+  Options:
+
+    -h, --help                   - Show this help.
+    --title          <title>     - Project title
+    --type           <type>      - Project type (book, default, website)
+    --template       <type>      - Use a specific project template
+    --engine         <engine>    - Use execution engine (markdown, jupyter, knitr)
+    --editor         <editor>    - Default editor for project ('source' or 'visual')
+    --with-venv      [packages]  - Create a virtualenv for this project
+    --with-condaenv  [packages]  - Create a condaenv for this project
+    --no-scaffold                - Don't create initial project file(s)
+    --log            <level>     - Path to log file
+    --log-level      <level>     - Log level (info, warning, error, critical)
+    --log-format     <format>    - Log format (plain, json-stream)
+    --quiet                      - Suppress console output.
+    --profile                    - Active project profile(s)
+
+  Commands:
+
+    help  [command]  - Show this help or the help of a sub-command.
+
+  Examples:
+
+    Create a project in the current directory:         quarto create-project
+    Create a project in the 'myproject' directory:     quarto create-project myproject
+    Create a website project:                          quarto create-project mysite --type website
+    Create a blog project:                             quarto create-project mysite --type website --template blog
+    Create a book project:                             quarto create-project mybook --type book
+    Create a website project with jupyter:             quarto create-project mysite --type website --engine jupyter
+    Create a website project with jupyter + kernel:    quarto create-project mysite --type website --engine jupyter:python3
+    Create a book project with knitr:                  quarto create-project mybook --type book --engine knitr
+    Create jupyter project with virtualenv:            quarto create-project myproject --engine jupyter --with-venv
+    Create jupyter project with virtualenv + packages: quarto create-project myproject --engine jupyter --with-venv pandas,matplotlib
+    Create jupyter project with condaenv :             quarto create-project myproject --engine jupyter --with-condaenv
+    Create jupyter project with condaenv + packages:   quarto create-project myproject --engine jupyter --with-condaenv pandas,matplotlib
+```
+
+## My Projects with Quarto {.smaller}
+
+::::{layout="[[-1], [1], [1],[1],[1],[1],[-1]]"}
+Current:
+
++ Currently Reviewing teaching material (ONS)
+
++ Creating new learning resources (ONS)
+
+    - [Introduction to Machine Learning](https://filippocavallari.github.io/Intro_ML/)
+    - [Understanding Gradient Descent](https://filippocavallari.github.io/gradient_descent/)
+
++ Delivering for NHS (with Penny Holborn)
+
+    - Fundamentals of Data Science
+    - Fundamentals of Machine Learning
+    
+To do:
+
++ My blog
+::::
+
+## Resources that I Found Useful {.smaller}
+
++ [Quarto Website](https://quarto.org/){preview-link="true"}
+
++ [Quarto Gallery](https://quarto.org/docs/gallery/){preview-link="true"}
+
++ [A Quarto tip a day](https://mine-cetinkaya-rundel.github.io/quarto-tip-a-day/){preview-link="true"} Mine Çetinkaya-Rundel
+
++ [Awesome Quarto](https://github.com/mcanouil/awesome-quarto){preview-link="true"} Mickaël Canouil
+
++ [The ultimate guide to starting a Quarto blog](https://albert-rapp.de/posts/13_quarto_blog_writing_guide/13_quarto_blog_writing_guide.html){preview-link="true"} Albert Rapp 
+
++ [6 Productivity Hacks for Quarto](https://posit.co/blog/6-productivity-hacks-for-quarto/){preview-link="true"}  Tom Mock and Isabella Velásquez
+
++ [R for Data Science - Communicate](https://r4ds.hadley.nz/communicate.html){preview-link="true"} Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund
+
+> This edition of the book has been written in Quarto, and it’s clearly the tool of the future.
+
+# Thank You!
+Questions?
