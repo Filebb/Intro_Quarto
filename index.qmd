@@ -24,7 +24,7 @@ format:
 ::::{layout="[[-1], [1], [-1]]"}
 + Currently Data Science Lecturer at ONS
 
-+ Previuosly working in Academia
++ Previously working in Academia
 
 + R user since 2012
 ::::
@@ -91,7 +91,7 @@ Just for R...
 ## Quarto is a CLI
 
 Quarto is a **command line interface** that takes in input plain text formats
-(e.g. `.md`, `.Rmd`, `.qmd`) or `.ipynb` and transforms them in a variaety of
+(e.g. `.md`, `.Rmd`, `.qmd`) or `.ipynb` and transforms them in a variety of
 formats:
 
 :::{.incremental}
@@ -651,7 +651,7 @@ format:
 ````
 
 + [Preview Links](https://nhsrcommunity.com/){preview-link="true"}
-+ Chalckboard for all or just some slides
++ Chalkboard for all or just some slides
 
 ## Some Options Worth Knowing
 
