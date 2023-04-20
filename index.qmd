@@ -1,8 +1,6 @@
 ---
 title: "Introduction to Quarto for R Users"
-subtitle: "NHS-R Community Webinar"
 author: "Filippo Cavallari"
-date: 2023-03-15
 execute: 
   cache: true
 date-format: D MMMM YYYY
