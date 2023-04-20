@@ -621,7 +621,7 @@ plot(4500)
 plot(5000)
 ```
 
-## Presentations {chalkboard-buttons="true"}
+## Presentations
 
 Create `revealjs` presentations
 
@@ -632,7 +632,7 @@ format: revealjs
 ---
 ````
 
-## Presentations {.scrollable .smaller}
+## Presentations {.scrollable .smaller chalkboard-buttons="true"}
 
 + Navigation Menu
 + Overview Mode
