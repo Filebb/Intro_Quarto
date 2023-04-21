@@ -11,6 +11,7 @@
   <meta name="generator" content="quarto-1.3.299">
 
   <meta name="author" content="Filippo Cavallari">
+  <meta name="dcterms.date" content="2023-04-21">
   <title>Introduction to Quarto for R Users</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -396,6 +397,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">Introduction to Quarto for R Users</h1>
+  <p class="subtitle">NHS-R Webinar</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -405,6 +407,7 @@ Filippo Cavallari
 </div>
 </div>
 
+  <p class="date">21 April 2023</p>
 </section>
 <section id="about-me" class="slide level2">
 <h2>About Me</h2>
@@ -712,7 +715,7 @@ Filippo Cavallari
 </section>
 <section id="diagrams" class="slide level2">
 <h2>Diagrams</h2>
-<div class="cell" data-reveal="true" data-fig-width="6">
+<div class="cell" data-reveal="true">
 <div class="cell-output-display">
 <div>
 <div>
@@ -725,11 +728,10 @@ Filippo Cavallari
 </div>
 </div>
 <div class="sourceCode" id="cb17"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb17-1"><a href="#cb17-1"></a>```{mermaid}</span>
-<span id="cb17-2"><a href="#cb17-2"></a>%%| fig-width: 6</span>
-<span id="cb17-3"><a href="#cb17-3"></a>flowchart LR</span>
-<span id="cb17-4"><a href="#cb17-4"></a>  A[A] --&gt; B{B}</span>
-<span id="cb17-5"><a href="#cb17-5"></a>  B --&gt; C(C)</span>
-<span id="cb17-6"><a href="#cb17-6"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-2"><a href="#cb17-2"></a>flowchart LR</span>
+<span id="cb17-3"><a href="#cb17-3"></a>  A[A] --&gt; B{B}</span>
+<span id="cb17-4"><a href="#cb17-4"></a>  B --&gt; C(C)</span>
+<span id="cb17-5"><a href="#cb17-5"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>See <a href="https://quarto.org/docs/authoring/diagrams.html">here</a> for more about diagrams with mermaid.</p>
 </section>
 <section id="callout-blocks" class="slide level2">
@@ -1009,11 +1011,26 @@ Filippo Cavallari
 <img data-src="index_files/figure-revealjs/unnamed-chunk-34-1.png" width="960" class="r-stretch"></section>
 <section id="presentations" class="slide level2">
 <h2>Presentations</h2>
-<p>Create <code>revealjs</code> presentations</p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<p>&nbsp;</p>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<p>Create <code>revealjs</code> presentations is as easy as</p>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="sourceCode" id="cb23"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb23-1"><a href="#cb23-1"></a><span class="pp">---</span></span>
 <span id="cb23-2"><a href="#cb23-2"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Presentation"</span></span>
 <span id="cb23-3"><a href="#cb23-3"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> revealjs</span></span>
 <span id="cb23-4"><a href="#cb23-4"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="presentations-1" class="slide level2 scrollable smaller" data-chalkboard-buttons="true">
 <h2>Presentations</h2>
@@ -1053,52 +1070,94 @@ Filippo Cavallari
 <span id="cb26-5"><a href="#cb26-5"></a><span class="at">        </span><span class="fu">embed-resources</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
 <span id="cb26-6"><a href="#cb26-6"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
+<section id="websites" class="slide level2">
+<h2>Websites</h2>
+<center>
+<iframe width="1000" height="500" src="https://filebb.github.io/test_site2/" title="Test Website"></iframe>
+</center>
+</section>
+<section id="website-structure" class="slide level2">
+<h2>Website structure</h2>
+<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb27-1"><a href="#cb27-1"></a><span class="fu">project</span><span class="kw">:</span></span>
+<span id="cb27-2"><a href="#cb27-2"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span>
+<span id="cb27-3"><a href="#cb27-3"></a><span class="at">  </span><span class="fu">output-dir</span><span class="kw">:</span><span class="at"> docs</span></span>
+<span id="cb27-4"><a href="#cb27-4"></a></span>
+<span id="cb27-5"><a href="#cb27-5"></a><span class="fu">website</span><span class="kw">:</span></span>
+<span id="cb27-6"><a href="#cb27-6"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Test Quarto Site"</span></span>
+<span id="cb27-7"><a href="#cb27-7"></a><span class="at">  </span><span class="fu">navbar</span><span class="kw">:</span></span>
+<span id="cb27-8"><a href="#cb27-8"></a><span class="at">    </span><span class="fu">background</span><span class="kw">:</span><span class="at"> primary</span></span>
+<span id="cb27-9"><a href="#cb27-9"></a><span class="at">    </span><span class="fu">left</span><span class="kw">:</span></span>
+<span id="cb27-10"><a href="#cb27-10"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> index.qmd</span></span>
+<span id="cb27-11"><a href="#cb27-11"></a><span class="at">        </span><span class="fu">text</span><span class="kw">:</span><span class="at"> Home</span></span>
+<span id="cb27-12"><a href="#cb27-12"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> about.qmd</span></span>
+<span id="cb27-13"><a href="#cb27-13"></a><span class="at">        </span><span class="fu">text</span><span class="kw">:</span><span class="at"> Different</span></span>
+<span id="cb27-14"><a href="#cb27-14"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> another_one.qmd</span></span>
+<span id="cb27-15"><a href="#cb27-15"></a><span class="at">        </span><span class="fu">text</span><span class="kw">:</span><span class="at"> Another One</span></span>
+<span id="cb27-16"><a href="#cb27-16"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">text</span><span class="kw">:</span><span class="at"> Menu</span></span>
+<span id="cb27-17"><a href="#cb27-17"></a><span class="at">        </span><span class="fu">menu</span><span class="kw">:</span></span>
+<span id="cb27-18"><a href="#cb27-18"></a><span class="at">          </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> menu_1.qmd</span></span>
+<span id="cb27-19"><a href="#cb27-19"></a><span class="at">            </span><span class="fu">text</span><span class="kw">:</span><span class="at"> Menu 1</span></span>
+<span id="cb27-20"><a href="#cb27-20"></a><span class="at">          </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> menu_2.qmd</span></span>
+<span id="cb27-21"><a href="#cb27-21"></a><span class="at">            </span><span class="fu">text</span><span class="kw">:</span><span class="at"> Menu 2</span></span>
+<span id="cb27-22"><a href="#cb27-22"></a><span class="at">          </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> menu_3.qmd</span></span>
+<span id="cb27-23"><a href="#cb27-23"></a><span class="at">            </span><span class="fu">text</span><span class="kw">:</span><span class="at"> Menu 3</span></span>
+<span id="cb27-24"><a href="#cb27-24"></a><span class="at">          </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> menu_4.qmd</span></span>
+<span id="cb27-25"><a href="#cb27-25"></a><span class="at">            </span><span class="fu">text</span><span class="kw">:</span><span class="at"> Menu 4</span></span>
+<span id="cb27-26"><a href="#cb27-26"></a></span>
+<span id="cb27-27"><a href="#cb27-27"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb27-28"><a href="#cb27-28"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb27-29"><a href="#cb27-29"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> yeti</span></span>
+<span id="cb27-30"><a href="#cb27-30"></a><span class="at">    </span><span class="fu">css</span><span class="kw">:</span><span class="at"> styles.css</span></span>
+<span id="cb27-31"><a href="#cb27-31"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb27-32"><a href="#cb27-32"></a></span>
+<span id="cb27-33"><a href="#cb27-33"></a><span class="fu">editor</span><span class="kw">:</span><span class="at"> source</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 <section id="other-projects" class="slide level2">
 <h2>Other Projects</h2>
-<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb27-1"><a href="#cb27-1"></a>$ quarto help create-project</span>
-<span id="cb27-2"><a href="#cb27-2"></a></span>
-<span id="cb27-3"><a href="#cb27-3"></a>  Usage:   quarto create-project [dir]</span>
-<span id="cb27-4"><a href="#cb27-4"></a>  Version: 1.2.335</span>
-<span id="cb27-5"><a href="#cb27-5"></a></span>
-<span id="cb27-6"><a href="#cb27-6"></a>  Description:</span>
-<span id="cb27-7"><a href="#cb27-7"></a></span>
-<span id="cb27-8"><a href="#cb27-8"></a>    Create a project for rendering multiple documents</span>
-<span id="cb27-9"><a href="#cb27-9"></a></span>
-<span id="cb27-10"><a href="#cb27-10"></a>  Options:</span>
-<span id="cb27-11"><a href="#cb27-11"></a></span>
-<span id="cb27-12"><a href="#cb27-12"></a>    -h, --help                   - Show this help.</span>
-<span id="cb27-13"><a href="#cb27-13"></a>    --title          &lt;title&gt;     - Project title</span>
-<span id="cb27-14"><a href="#cb27-14"></a>    --type           &lt;type&gt;      - Project type (book, default, website)</span>
-<span id="cb27-15"><a href="#cb27-15"></a>    --template       &lt;type&gt;      - Use a specific project template</span>
-<span id="cb27-16"><a href="#cb27-16"></a>    --engine         &lt;engine&gt;    - Use execution engine (markdown, jupyter, knitr)</span>
-<span id="cb27-17"><a href="#cb27-17"></a>    --editor         &lt;editor&gt;    - Default editor for project ('source' or 'visual')</span>
-<span id="cb27-18"><a href="#cb27-18"></a>    --with-venv      [packages]  - Create a virtualenv for this project</span>
-<span id="cb27-19"><a href="#cb27-19"></a>    --with-condaenv  [packages]  - Create a condaenv for this project</span>
-<span id="cb27-20"><a href="#cb27-20"></a>    --no-scaffold                - Don't create initial project file(s)</span>
-<span id="cb27-21"><a href="#cb27-21"></a>    --log            &lt;level&gt;     - Path to log file</span>
-<span id="cb27-22"><a href="#cb27-22"></a>    --log-level      &lt;level&gt;     - Log level (info, warning, error, critical)</span>
-<span id="cb27-23"><a href="#cb27-23"></a>    --log-format     &lt;format&gt;    - Log format (plain, json-stream)</span>
-<span id="cb27-24"><a href="#cb27-24"></a>    --quiet                      - Suppress console output.</span>
-<span id="cb27-25"><a href="#cb27-25"></a>    --profile                    - Active project profile(s)</span>
-<span id="cb27-26"><a href="#cb27-26"></a></span>
-<span id="cb27-27"><a href="#cb27-27"></a>  Commands:</span>
-<span id="cb27-28"><a href="#cb27-28"></a></span>
-<span id="cb27-29"><a href="#cb27-29"></a>    help  [command]  - Show this help or the help of a sub-command.</span>
-<span id="cb27-30"><a href="#cb27-30"></a></span>
-<span id="cb27-31"><a href="#cb27-31"></a>  Examples:</span>
-<span id="cb27-32"><a href="#cb27-32"></a></span>
-<span id="cb27-33"><a href="#cb27-33"></a>    Create a project in the current directory:         quarto create-project</span>
-<span id="cb27-34"><a href="#cb27-34"></a>    Create a project in the 'myproject' directory:     quarto create-project myproject</span>
-<span id="cb27-35"><a href="#cb27-35"></a>    Create a website project:                          quarto create-project mysite --type website</span>
-<span id="cb27-36"><a href="#cb27-36"></a>    Create a blog project:                             quarto create-project mysite --type website --template blog</span>
-<span id="cb27-37"><a href="#cb27-37"></a>    Create a book project:                             quarto create-project mybook --type book</span>
-<span id="cb27-38"><a href="#cb27-38"></a>    Create a website project with jupyter:             quarto create-project mysite --type website --engine jupyter</span>
-<span id="cb27-39"><a href="#cb27-39"></a>    Create a website project with jupyter + kernel:    quarto create-project mysite --type website --engine jupyter:python3</span>
-<span id="cb27-40"><a href="#cb27-40"></a>    Create a book project with knitr:                  quarto create-project mybook --type book --engine knitr</span>
-<span id="cb27-41"><a href="#cb27-41"></a>    Create jupyter project with virtualenv:            quarto create-project myproject --engine jupyter --with-venv</span>
-<span id="cb27-42"><a href="#cb27-42"></a>    Create jupyter project with virtualenv + packages: quarto create-project myproject --engine jupyter --with-venv pandas,matplotlib</span>
-<span id="cb27-43"><a href="#cb27-43"></a>    Create jupyter project with condaenv :             quarto create-project myproject --engine jupyter --with-condaenv</span>
-<span id="cb27-44"><a href="#cb27-44"></a>    Create jupyter project with condaenv + packages:   quarto create-project myproject --engine jupyter --with-condaenv pandas,matplotlib</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb28-1"><a href="#cb28-1"></a>$ quarto help create-project</span>
+<span id="cb28-2"><a href="#cb28-2"></a></span>
+<span id="cb28-3"><a href="#cb28-3"></a>  Usage:   quarto create-project [dir]</span>
+<span id="cb28-4"><a href="#cb28-4"></a>  Version: 1.2.335</span>
+<span id="cb28-5"><a href="#cb28-5"></a></span>
+<span id="cb28-6"><a href="#cb28-6"></a>  Description:</span>
+<span id="cb28-7"><a href="#cb28-7"></a></span>
+<span id="cb28-8"><a href="#cb28-8"></a>    Create a project for rendering multiple documents</span>
+<span id="cb28-9"><a href="#cb28-9"></a></span>
+<span id="cb28-10"><a href="#cb28-10"></a>  Options:</span>
+<span id="cb28-11"><a href="#cb28-11"></a></span>
+<span id="cb28-12"><a href="#cb28-12"></a>    -h, --help                   - Show this help.</span>
+<span id="cb28-13"><a href="#cb28-13"></a>    --title          &lt;title&gt;     - Project title</span>
+<span id="cb28-14"><a href="#cb28-14"></a>    --type           &lt;type&gt;      - Project type (book, default, website)</span>
+<span id="cb28-15"><a href="#cb28-15"></a>    --template       &lt;type&gt;      - Use a specific project template</span>
+<span id="cb28-16"><a href="#cb28-16"></a>    --engine         &lt;engine&gt;    - Use execution engine (markdown, jupyter, knitr)</span>
+<span id="cb28-17"><a href="#cb28-17"></a>    --editor         &lt;editor&gt;    - Default editor for project ('source' or 'visual')</span>
+<span id="cb28-18"><a href="#cb28-18"></a>    --with-venv      [packages]  - Create a virtualenv for this project</span>
+<span id="cb28-19"><a href="#cb28-19"></a>    --with-condaenv  [packages]  - Create a condaenv for this project</span>
+<span id="cb28-20"><a href="#cb28-20"></a>    --no-scaffold                - Don't create initial project file(s)</span>
+<span id="cb28-21"><a href="#cb28-21"></a>    --log            &lt;level&gt;     - Path to log file</span>
+<span id="cb28-22"><a href="#cb28-22"></a>    --log-level      &lt;level&gt;     - Log level (info, warning, error, critical)</span>
+<span id="cb28-23"><a href="#cb28-23"></a>    --log-format     &lt;format&gt;    - Log format (plain, json-stream)</span>
+<span id="cb28-24"><a href="#cb28-24"></a>    --quiet                      - Suppress console output.</span>
+<span id="cb28-25"><a href="#cb28-25"></a>    --profile                    - Active project profile(s)</span>
+<span id="cb28-26"><a href="#cb28-26"></a></span>
+<span id="cb28-27"><a href="#cb28-27"></a>  Commands:</span>
+<span id="cb28-28"><a href="#cb28-28"></a></span>
+<span id="cb28-29"><a href="#cb28-29"></a>    help  [command]  - Show this help or the help of a sub-command.</span>
+<span id="cb28-30"><a href="#cb28-30"></a></span>
+<span id="cb28-31"><a href="#cb28-31"></a>  Examples:</span>
+<span id="cb28-32"><a href="#cb28-32"></a></span>
+<span id="cb28-33"><a href="#cb28-33"></a>    Create a project in the current directory:         quarto create-project</span>
+<span id="cb28-34"><a href="#cb28-34"></a>    Create a project in the 'myproject' directory:     quarto create-project myproject</span>
+<span id="cb28-35"><a href="#cb28-35"></a>    Create a website project:                          quarto create-project mysite --type website</span>
+<span id="cb28-36"><a href="#cb28-36"></a>    Create a blog project:                             quarto create-project mysite --type website --template blog</span>
+<span id="cb28-37"><a href="#cb28-37"></a>    Create a book project:                             quarto create-project mybook --type book</span>
+<span id="cb28-38"><a href="#cb28-38"></a>    Create a website project with jupyter:             quarto create-project mysite --type website --engine jupyter</span>
+<span id="cb28-39"><a href="#cb28-39"></a>    Create a website project with jupyter + kernel:    quarto create-project mysite --type website --engine jupyter:python3</span>
+<span id="cb28-40"><a href="#cb28-40"></a>    Create a book project with knitr:                  quarto create-project mybook --type book --engine knitr</span>
+<span id="cb28-41"><a href="#cb28-41"></a>    Create jupyter project with virtualenv:            quarto create-project myproject --engine jupyter --with-venv</span>
+<span id="cb28-42"><a href="#cb28-42"></a>    Create jupyter project with virtualenv + packages: quarto create-project myproject --engine jupyter --with-venv pandas,matplotlib</span>
+<span id="cb28-43"><a href="#cb28-43"></a>    Create jupyter project with condaenv :             quarto create-project myproject --engine jupyter --with-condaenv</span>
+<span id="cb28-44"><a href="#cb28-44"></a>    Create jupyter project with condaenv + packages:   quarto create-project myproject --engine jupyter --with-condaenv pandas,matplotlib</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="my-projects-with-quarto" class="slide level2 smaller">
 <h2>My Projects with Quarto</h2>

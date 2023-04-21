@@ -1,6 +1,8 @@
 ---
 title: "Introduction to Quarto for R Users"
+subtitle: "NHS-R Webinar"
 author: "Filippo Cavallari"
+date: 2023-04-21
 execute: 
   cache: true
 date-format: D MMMM YYYY
@@ -248,7 +250,6 @@ $$
 ## Diagrams
 
 ```{mermaid}
-%%| fig-width: 6
 flowchart LR
   A[A] --> B{B}
   B --> C(C)
@@ -256,7 +257,6 @@ flowchart LR
 
 ````code
 ```{mermaid}
-%%| fig-width: 6
 flowchart LR
   A[A] --> B{B}
   B --> C(C)
@@ -623,7 +623,8 @@ plot(5000)
 
 ## Presentations
 
-Create `revealjs` presentations
+::::{layout="[[-1], [1], [1], [-1]]"}
+Create `revealjs` presentations is as easy as
 
 ````yaml
 ---
@@ -631,6 +632,7 @@ title: "Presentation"
 format: revealjs
 ---
 ````
+::::
 
 ## Presentations {.scrollable .smaller chalkboard-buttons="true"}
 
@@ -671,6 +673,52 @@ format:
     revealjs:
         embed-resources: true
 ---
+````
+
+## Websites
+
+```{=html}
+<center>
+<iframe width="1000" height="500" src="https://filebb.github.io/test_site2/" title="Test Website"></iframe>
+</center>
+```
+
+## Website structure
+
+````yaml
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Test Quarto Site"
+  navbar:
+    background: primary
+    left:
+      - href: index.qmd
+        text: Home
+      - href: about.qmd
+        text: Different
+      - href: another_one.qmd
+        text: Another One
+      - text: Menu
+        menu:
+          - href: menu_1.qmd
+            text: Menu 1
+          - href: menu_2.qmd
+            text: Menu 2
+          - href: menu_3.qmd
+            text: Menu 3
+          - href: menu_4.qmd
+            text: Menu 4
+
+format:
+  html:
+    theme: yeti
+    css: styles.css
+    toc: true
+
+editor: source
 ````
 
 ## Other Projects
